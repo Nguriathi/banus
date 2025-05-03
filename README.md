@@ -1,171 +1,119 @@
-# 📈 Enterprise Sales Analytics Platform
+📦 Product Invoice Analyzer
+(https://chandler.streamlit.app/)
 
-A powerful sales analytics dashboard built with [Streamlit](https://streamlit.io/) that provides real-time insights, trend visualization, and sales forecasting capabilities.
+🚀 Features
+Single & Batch File Processing: Analyze one or many invoice Excel files at once.
 
----
+Vessel & Agent Extraction: Automatically display vessel and agent information from your invoice.
 
-## 🌟 Features
+Interactive Data Editing: Edit product tables directly in the browser.
 
-- ✅ **Interactive Dashboard**
-- ✅ **Sales Forecasting** (Facebook Prophet)
-- ✅ **Real-Time Filtering**
-- ✅ **Data Export Capabilities**
-- ✅ **Custom Visualization Themes**
-- ✅ **Splash Screen**
-- ✅ **Responsive Design**
+Adaptive Visualizations:
 
----
+Bar charts, treemaps, and line charts for product quantities and trends
 
-## 🚀 Getting Started
+Outlier detection (scatter plot)
 
-### Prerequisites
+Recurring item detection
 
-Make sure you have Python 3.8+ installed.
+Forecasting: Predict future product quantities with Prophet.
 
+Bullet Point Summaries: Each analysis is summarized in clear bullet points.
+
+Template Export: Download your edited data in a pre-defined Excel template.
+
+Modern UI: Splash screen, sidebar animation, and a gradient-matching navbar.
+
+🌐 Live Demo
+https://chandler.streamlit.app/
+Try the app instantly in your browser-no installation needed!
+
+🏗️ How It Works
+Start the App:
+Launch with Streamlit and enjoy a modern splash screen.
+
+Choose Processing Mode:
+
+Single File: For individual invoices (shows vessel/agent, uses template export)
+
+Batch: For multiple invoices (trend analysis, forecasting, batch summary)
+
+Upload Invoice File(s):
+Accepts .xlsx files with an analysis sheet in the expected format.
+
+Analyze & Edit:
+
+View adaptive visualizations and bullet-point summaries
+
+Edit product tables as needed
+
+Export:
+
+Single: Download a filled-in Excel template with all invoice data.
+
+Batch: Download a combined Excel summary.
+
+🛠️ Setup & Usage
+Clone the repo:
+
+bash
+git clone https://github.com/your-username/invoice-analyzer.git
+cd invoice-analyzer
 Install dependencies:
 
+bash
 pip install -r requirements.txt
+Or manually:
+
+bash
+pip install streamlit streamlit-lottie pandas plotly openpyxl prophet
+Add your files:
+
+Place your template.xlsx and assets/animation.json in the project root.
+
+Run the app:
+
+bash
+streamlit run app.py
+Upload your invoice(s) and enjoy!
+
+📝 Invoice Format Example
+Your Excel file should have an analysis sheet with this structure:
+
+AGENT	...	...
+VESSEL	...	...
+DOD	...	...
+...	...	...
+NO	PRODUCT DESCRIPTION	UNIT/PRC
+1	Cabbage White	1.2
+...	...	...
+📊 Example Bullet Summary
+This invoice contains 32 unique products.
+
+Total quantity: 320.
+
+Total value: $1,420.80.
+
+Top product: Cabbage White.
+
+Most significant product by quantity: Cabbage White.
 
 
+🤝 Contributing
+Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
 
-### Installation
+📄 License
+MIT
 
-1. **Clone the repository**
-    ```
-    git clone https://github.com/Nguriathi/Analysis.git
-    
-    cd enterprise-sales-analytics
-    ```
+🙏 Acknowledgements
+Streamlit
 
-2. **Install dependencies**
-    ```
-    pip install streamlit pandas plotly prophet openpyxl
-    ```
+Plotly
 
-3. **Run the application**
-    ```
-    streamlit run app.py
-    ```
+Prophet
 
+eazyBI Data Visualization Blog
 
+LottieFiles
 
-## 📂 File Structure
-
-enterprise-sales-analytics/
-├── app.py # Main application code
-├── requirements.txt # Dependency list
-├── README.md # Documentation
-├── config.yaml # (Optional) Authentication config
-└── Data.xlsx # Data used as an example for the project
-
-
----
-
-## 🧮 Core Functionality
-
-def generate_forecast(df, period=365):
-"""Generate sales forecast using Facebook Prophet"""
-model = Prophet()
-model.fit(df)
-future = model.make_future_dataframe(periods=period)
-return model.predict(future)
-
-
----
-
-## 📊 Supported Data Formats
-
-| Format | Features      |
-|--------|--------------|
-| CSV    | Full support |
-| Excel  | Full support |
-| JSON   | Not supported |
-
----
-
-## 🛠️ Configuration
-
-To enable authentication, edit `config.yaml` file:
-
-credentials:
-usernames:
-admin:
-email: admin@company.com
-name: Admin User
-password: "hashed_password"
-cookie:
-name: "sales_analytics"
-key: "your_secret_key"
-expiry_days: 1
-
-
----
-
-## 💡 Usage Tips
-
-1. **Data Requirements**
-    - Must contain `Order Date`, `Sales`, and `Profit` columns
-    - Date format: `YYYY-MM-DD`
-    - Numeric columns should be clean
-
-2. **Performance**
-    - Optimal dataset size: <100,000 rows
-    - For large datasets, enable caching with `@st.cache`
-
----
-
-## 🧪 Testing
-
-Run basic tests with:
-
-python -m pytest tests/
-
-
----
-
-## 🤝 Contributing
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
----
-
-## 📜 License
-
-Distributed under the MIT License.
-
----
-
-## 📞 Contact
-
-**Project Maintainer:** Nguriathi
-
-Project Link: 
-
----
-
-## 🏆 Deployment Options
-
-### 1. Streamlit Community Cloud
-
-[![Deploy to Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://streamlit.io/cloud)
-
-### 2. Linux Server
-
-sudo apt install python3-pip
-pip install -r requirements.txt
-streamlit run app.py --server.port 80
-
-
-
-### 3. Docker
-
-FROM python:3.9-slim
-COPY . /app
-WORKDIR /app
-RUN pip install -r requirements.txt
-EXPOSE 8501
-CMD ["streamlit", "run", "app.py"]
+Built for invoice analytics and business intelligence.
