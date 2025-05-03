@@ -1,0 +1,15 @@
+credentials:
+  usernames:
+    superuser:
+      email: superuser@example.com
+      name: Superuser
+      password: '$2b$12$8W1qZQ7tq9Xq8kJYzqY0xO9x0X1J2L5vY8aXq1F9vPqWzV4B1Yp6e'
+    user:
+      email: user@example.com
+      name: User
+      password: '$2b$12$3V8qLrQ6s8Wm7jKXyZb1uN0y1Z2K3M4nP5oRq1T8vXyWzV7C2Xq9a'
+
+cookie:
+  expiry_days: 1
+  key: some_signature_key
+  name: some_cookie_name

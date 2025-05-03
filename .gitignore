@@ -1,0 +1,25 @@
+# Streamlit
+.streamlit/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+
+# Environment
+.env
+.venv/
+venv/
+env/
+
+# Data
+*.csv
+*.xlsx
+*.json
+
+# OS
+.DS_Store
+Thumbs.db
