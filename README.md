@@ -19,31 +19,30 @@ Upload your Excel invoice(s) and get instant analytics, summaries, and export-re
 
 ## 🚀 Getting Started
 
-##Prerequisites
+###Prerequisites
+
 Python 3.8 or higher
 
 ## Installation
 
 1. **Clone the repository**
-    ---
+    ```
     git clone https://github.com/your-username/invoice-analyzer.git
     
     cd invoice-analyzer
-    ---
+    ```
 
 2. **Install dependencies**
-    ---
+    ```
     pip install -r requirements.txt
-    ---
-
-    ---
+    ```
+    ```
     pip install streamlit streamlit-lottie pandas plotly openpyxl prophet
-    Add your files
-    ---
+    ```
 
----
-Place your template.xlsx and assets/animation.json in the project root.
----
+    ```
+    Place your template.xlsx and assets/animation.json in the project root.
+    ```
 
 3. **Run the application**
     ```
@@ -62,6 +61,7 @@ invoice-analyzer/
 │   └── animation.json   # Lottie animation for sidebar
 ├── template.xlsx        # Excel template for export
 └── Data.xlsx            # Example invoice data
+
 
 ---
 
@@ -89,19 +89,6 @@ Edited data as Excel
 
 Single file mode: fills your template.xlsx with all info
 
-Sample function for forecasting:
-
-python
-def prophet_forecast(df, periods=3):
-    ts = df.groupby('INVOICE_DATE')['QTY'].sum().reset_index()
-    ts = ts.rename(columns={'INVOICE_DATE': 'ds', 'QTY': 'y'})
-    if len(ts) < 2:
-        return None
-    model = Prophet(yearly_seasonality=False, weekly_seasonality=False, daily_seasonality=False)
-    model.fit(ts)
-    future = model.make_future_dataframe(periods=periods, freq='MS')
-    forecast = model.predict(future)
-    return forecast
     
 ## 📊 Supported Data Formats
 
@@ -121,18 +108,22 @@ NO	PRODUCT DESCRIPTION	UNIT/PRC
 1	Cabbage White	1.2
 ...	...	...
 
+---
+
 ##💡 Usage Tips
 
 1. **Data Requirements**
-    -analysis sheet must include columns: NO, PRODUCT DESCRIPTION, UNIT/PRC, UNIT, QTY, TOTAL        USD
+    - Must contain `Number`, `Product Description`, `Unit/Prc`, `Unit`, `Qty`, and `Total USD`       columns
+    - Date format: `YYYY-MM-DD`
+    - Numeric columns should be clean    
+    - AGENT and VESSEL fields are auto-extracted if present
     
-    -AGENT and VESSEL fields are auto-extracted if present
-    
-    -Date format: YYYY-MM-DD for DOD
 
-2. **Performance**
-
-For large datasets, enable Streamlit caching (@st.cache_data)
+3. **Performance**
+    - Optimal dataset size: <100,000 rows
+    - For large datasets, enable caching with `@st.cache`
+      
+---
 
 ## 🧪 Testing
 Test your data extraction and forecasting logic with:
