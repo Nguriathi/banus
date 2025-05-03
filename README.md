@@ -1,6 +1,5 @@
 # 📦 Product Invoice Analyzer
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svgrn Streamlit app for visualizing, editing, and forecasting invoice product data.
-Upload your Excel invoice(s) and get instant analytics, summaries, and export-ready files!
+https://chandler.streamlit.app/
 
 ===
 
